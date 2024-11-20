@@ -43,7 +43,7 @@ A Python-based scraper for extracting data from Twitter (X) using Selenium WebDr
 
 1. **Clone the Repository**
    ```bash
-   git@github.com:aviade5/twitter-scraper.git
+   git@github.com:AviElbaz7/Crawler-For-X.git
    cd twitter-scraper
 
 2. **Setup**

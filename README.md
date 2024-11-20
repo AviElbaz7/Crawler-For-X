@@ -43,26 +43,46 @@ A Python-based scraper for extracting data from Twitter (X) using Selenium WebDr
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/<your-username>/twitter-scraper.git
+   git@github.com:aviade5/twitter-scraper.git
    cd twitter-scraper
 
 2. **Setup**
    - Place your Twitter credentials in `WebDriverSetup.py` for the login process.
    - Ensure the Selenium WebDriver setup is complete.
 
-## File Overview
+## File Overview and Explanation
 
-- **`main.py`**
-  - Entry point for the program. Allows the user to choose a scraping mode (`side=0`, `side=1`, or `side=3`).
+### `main.py`
+- **Purpose**: Serves as the entry point for the scraper, handling different modes (`side` values) for scraping.
+- **Key Functions**:
+  - `side=0`: Scrapes tweets using hashtags for a given date range.
+  - `side=1`: Scrapes tweets from the timelines of specified users.
+  - `side=3`: Scrapes followers, following, and verified followers of specified users.
+- **Output**: Saves the scraped data as CSV files.
 
-- **`SearchScrapper.py`**
-  - Handles the logic for scraping tweets using hashtags and user timelines.
+### `SearchScrapper.py`
+- **Purpose**: Handles the logic for scraping tweets based on hashtags or user timelines.
+- **Key Features**:
+  - Uses Selenium WebDriver to navigate Twitter search queries.
+  - Extracts tweet data, including text, author, likes, retweets, hashtags, and more.
+  - Implements a deduplication mechanism to avoid processing the same tweet multiple times.
+- **Output**: Returns a set of unique `Tweet` objects containing all relevant data.
 
-- **`SearchScrapperDetails.py`**
-  - Handles the logic for scraping user followers and following lists.
+### `SearchScrapperDetails.py`
+- **Purpose**: Scrapes the followers and following lists of specific users.
+- **Key Features**:
+  - Extracts usernames from the followers or following pages.
+  - Scrolls through the page dynamically to load more data.
+  - Ensures deduplication of user data.
+- **Output**: Returns a set of `UserDetail` objects containing usernames.
 
-- **`WebDriverSetup.py`**
-  - Configures and initializes the Selenium WebDriver for scraping Twitter.
+### `WebDriverSetup.py`
+- **Purpose**: Configures and initializes the Selenium WebDriver.
+- **Key Features**:
+  - Uses `webdriver-manager` to automatically download and manage the ChromeDriver.
+  - Handles Twitter login with placeholder credentials.
+  - Prepares the WebDriver for scraping tasks.
+- **Output**: Returns a ready-to-use Selenium WebDriver instance.
 
 ## Usage
 

@@ -60,7 +60,7 @@ def main(side):
             'replies', 'retweets', 'quotes', 'likes', 'hashtags', 'views', 'target'
         ]
         df = pd.DataFrame(all_tweets, columns=columns)
-        df.to_csv(f"{start_date}_to_{end_date}_hashtag_tweets.csv", index=False)
+        df.to_csv(f"{start_date}_to_{end_date}_hashtag_tweets.csv", index=False, encoding="utf-8-sig")
         print(f"Data saved to {start_date}_to_{end_date}_hashtag_tweets.csv")
 
     elif side == 1:
@@ -93,7 +93,7 @@ def main(side):
             'replies', 'retweets', 'quotes', 'likes', 'hashtags', 'views', 'target'
         ]
         df = pd.DataFrame(all_tweets, columns=columns)
-        df.to_csv(f"{start_date}_to_{end_date}_user_tweets.csv", index=False)
+        df.to_csv(f"{start_date}_to_{end_date}_user_tweets.csv", index=False, encoding="utf-8-sig")
         print(f"Data saved to {start_date}_to_{end_date}_user_tweets.csv")
 
     elif side == 3:
@@ -120,7 +120,7 @@ def main(side):
         # Save results
         columns = ['target_username', 'other_username', 'type']
         df = pd.DataFrame(all_follows, columns=columns)
-        df.to_csv("user_follows.csv", index=False)
+        df.to_csv("user_follows.csv", index=False, encoding="utf-8-sig")
         print("Data saved to user_follows.csv")
 
     else:
